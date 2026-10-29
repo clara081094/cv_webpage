@@ -1,0 +1,10 @@
+# Host-only files: the image installs its own dependencies and gets its
+# configuration from docker-compose, and uploads/ is mounted as a volume.
+.venv
+venv
+.env
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+uploads

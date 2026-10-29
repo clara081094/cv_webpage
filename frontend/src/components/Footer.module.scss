@@ -1,0 +1,62 @@
+@use "../styles/tokens" as *;
+
+.footer {
+  background: $color-surface;
+  padding: 40px $gutter 24px;
+  border-top: 1px solid $color-border-strong;
+}
+
+.inner {
+  max-width: $container-narrow;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+
+  &--forest {
+    color: $color-forest;
+  }
+
+  &--ink {
+    color: $color-ink;
+  }
+}
+
+.value {
+  font-size: 15px;
+  color: $color-forest;
+}
+
+.socials {
+  display: flex;
+  gap: 14px;
+}
+
+.socialLink {
+  color: $color-forest;
+  text-decoration: none;
+  display: flex;
+}
+
+a.value {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Last item of the contact row: pushed to the right edge, sitting on the same
+// line as the phone and email values.
+.credit {
+  margin: 0 0 0 auto;
+  align-self: flex-end;
+  font-size: 13px;
+  color: $color-ink-faint;
+}

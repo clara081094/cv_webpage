@@ -1,0 +1,66 @@
+@use "../styles/tokens" as *;
+
+.card {
+  background: $color-white;
+  border-radius: 14px;
+  border: 1px solid $color-card-border;
+  padding: 32px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.status {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-white;
+  background: $color-forest;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 26px;
+  margin: 0 0 4px;
+  color: $color-ink;
+}
+
+.author {
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-bronze;
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: $color-ink-muted;
+
+  p {
+    margin: 0 0 16px;
+  }
+}
+
+.tags {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-forest;
+  background: $color-background;
+  border-radius: 999px;
+  padding: 3px 10px;
+}

@@ -1,0 +1,65 @@
+@use "../styles/tokens" as *;
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+
+  &.circle {
+    border-radius: 50%;
+    // Height follows width, so the circle stays round when max-width shrinks it.
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+  }
+}
+
+.dropzone {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: $color-border;
+  color: $color-ink-muted;
+  font-family: inherit;
+
+  &.draggingOver {
+    background: $color-surface;
+  }
+}
+
+.preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.placeholderText {
+  font-size: 14px;
+}
+
+.hint {
+  font-size: 13px;
+  color: $color-ink-faint;
+}
+
+.hintLink {
+  text-decoration: underline;
+}
+
+.empty {
+  width: 100%;
+  height: 100%;
+  background: $color-border;
+}

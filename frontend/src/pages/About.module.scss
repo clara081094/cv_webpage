@@ -1,0 +1,119 @@
+@use "../styles/tokens" as *;
+
+.introSection {
+  background: $color-white;
+  padding: 88px $gutter;
+}
+
+.languagesSection {
+  background: $color-background;
+  padding: 88px $gutter;
+}
+
+.introContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: $color-gold;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+
+  &--centered {
+    text-align: center;
+  }
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(28px, 4vw, 38px);
+  color: $color-gold;
+  margin: 0 0 24px;
+
+  &--spaced {
+    margin: 0 0 48px;
+    text-align: center;
+  }
+}
+
+.intro {
+  font-size: 17px;
+  line-height: 1.8;
+  color: $color-ink-muted;
+}
+
+.block {
+  max-width: 900px;
+  margin: 72px auto 0;
+
+  &--tight {
+    margin: 56px auto 0;
+  }
+}
+
+.blockTitle {
+  font-family: $font-display;
+  font-size: 26px;
+  color: $color-slate;
+  margin: 0 0 40px;
+  text-align: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.languagesContainer {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.languagesList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.skillGroup {
+  font-size: 15px;
+  font-weight: 700;
+  color: $color-bronze;
+  margin: 0 0 12px;
+}
+
+.skillList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill {
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-slate;
+  background: $color-background;
+  border: 1px solid $color-card-border;
+  border-radius: 999px;
+  padding: 4px 12px;
+}

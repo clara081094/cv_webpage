@@ -1,0 +1,33 @@
+@use "../styles/tokens" as *;
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-ink;
+}
+
+.level {
+  font-size: 14px;
+  color: $color-slate;
+}
+
+.track {
+  width: 100%;
+  height: 8px;
+  background: $color-track;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: $color-slate;
+  border-radius: 999px;
+  width: var(--percentage);
+}

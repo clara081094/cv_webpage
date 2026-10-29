@@ -1,0 +1,34 @@
+@use "../styles/tokens" as *;
+
+.card {
+  background: $color-background;
+  border: 1px solid rgba(71, 83, 107, 0.14);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.period {
+  font-size: 14px;
+  color: $color-slate;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 19px;
+  margin: 0 0 4px;
+  color: $color-ink;
+}
+
+.institution {
+  font-size: 15px;
+  color: $color-bronze;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: $color-ink-muted;
+  margin: 10px 0 0;
+}

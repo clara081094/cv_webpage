@@ -1,0 +1,24 @@
+// Design tokens (palette + type scale), SCSS equivalent of the former
+// theme.js. Single source of truth — components never hardcode raw hex/px.
+$color-background: #faf7f1;
+$color-surface: #f2f1ee;
+$color-ink: #2b2a26;
+$color-ink-muted: #565349;
+$color-ink-faint: #8a8878;
+$color-gold: #c9a13b;
+$color-slate: #6e7a94;
+$color-forest: #1b4d3e;
+$color-bronze: #8a6a1e;
+$color-track: #ede9de;
+$color-border: rgba(43, 42, 38, 0.1);
+$color-border-strong: rgba(43, 42, 38, 0.12);
+$color-card-border: rgba(71, 83, 107, 0.12);
+$color-timeline-line: rgba(71, 83, 107, 0.25);
+$color-white: #ffffff;
+
+$font-display: "Space Grotesk", system-ui, sans-serif;
+$font-body: "Inter", system-ui, sans-serif;
+
+$container-max: 1200px;
+$container-narrow: 1000px;
+$gutter: 32px;

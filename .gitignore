@@ -1,0 +1,34 @@
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Secrets (keep the .env.example templates)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Frontend
+node_modules/
+dist/
+
+# Backend (Python)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# User uploads (data, moved between hosts by deploy/export-data.sh)
+backend/uploads/
+
+# Deploy exports: database dumps, upload archives, server env
+deploy/out/

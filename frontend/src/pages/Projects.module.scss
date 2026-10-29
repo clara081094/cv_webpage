@@ -1,0 +1,41 @@
+@use "../styles/tokens" as *;
+
+.section {
+  background: $color-background;
+  padding: 96px $gutter;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: $color-slate;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(28px, 4vw, 38px);
+  color: $color-slate;
+  margin: 0 0 56px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.message {
+  text-align: center;
+  color: $color-ink-muted;
+  font-size: 16px;
+}

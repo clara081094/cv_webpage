@@ -1,0 +1,23 @@
+@use "../styles/tokens" as *;
+
+.group {
+  display: flex;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.option {
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: $color-ink-muted;
+
+  &[aria-pressed="true"] {
+    background: $color-forest;
+    color: $color-background;
+  }
+}

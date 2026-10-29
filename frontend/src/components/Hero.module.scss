@@ -1,0 +1,74 @@
+@use "../styles/tokens" as *;
+
+.hero {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 96px $gutter 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+// Fixed basis instead of growing to fill the row: photo and text stay together
+// as one centered block on wide screens.
+.content {
+  flex: 0 1 520px;
+  min-width: 280px;
+}
+
+.greeting {
+  font-family: $font-display;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.1;
+  margin: 0 0 28px;
+  color: $color-ink;
+}
+
+.tagline {
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-ink;
+  margin: 0 0 12px;
+}
+
+.summary {
+  font-size: 16px;
+  line-height: 1.8;
+  color: $color-ink-muted;
+  max-width: 440px;
+  margin: 0 0 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+// Below this width the photo (420px), gap (64px), text (520px basis) and side
+// padding (64px) no longer fit side by side: stack them and center everything.
+@media (max-width: 1068px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 56px;
+    gap: 40px;
+  }
+
+  .content {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .summary {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+}

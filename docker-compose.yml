@@ -1,0 +1,71 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-website}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-website}
+      POSTGRES_DB: ${POSTGRES_DB:-website}
+    # Host port 5433: 5432 is often taken by another local Postgres.
+    # On a server set DB_BIND=127.0.0.1:5433 so Postgres is not public.
+    ports:
+      - "${DB_BIND:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-website} -d ${POSTGRES_DB:-website}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    # Host port 5001: macOS AirPlay Receiver holds 5000.
+    ports:
+      - "${BACKEND_BIND:-5001}:5000"
+    environment:
+      FLASK_ENV: production
+      FLASK_APP: wsgi:app
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-website}:${POSTGRES_PASSWORD:-website}@db:5432/${POSTGRES_DB:-website}
+      SECRET_KEY: ${SECRET_KEY:-change-me}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-change-me-too}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:8080}
+      UPLOAD_FOLDER: uploads
+      PUBLIC_MEDIA_URL: /static/uploads
+      DEFAULT_LOCALE: es
+      SUPPORTED_LOCALES: es,en
+    volumes:
+      # Uploaded images survive rebuilds; also visible from the host.
+      - ./backend/uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    # The entrypoint runs `flask db upgrade` on every start, so the schema is
+    # created on first boot. It never seeds: tables start empty.
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:5000/api/v1/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    # On a server set FRONTEND_BIND=127.0.0.1:8080 and let the host nginx proxy to it.
+    ports:
+      - "${FRONTEND_BIND:-8080}:80"
+    volumes:
+      # nginx serves uploaded images at /static/uploads (PUBLIC_MEDIA_URL).
+      - ./backend/uploads:/usr/share/nginx/uploads:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:

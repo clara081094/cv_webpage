@@ -1,0 +1,95 @@
+@use "../styles/tokens" as *;
+
+.item {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.rail {
+  flex: 0 0 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $color-slate;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.line {
+  width: 2px;
+  flex: 1;
+  background: $color-timeline-line;
+}
+
+.content {
+  flex: 1;
+  padding-bottom: 8px;
+}
+
+.period {
+  font-size: 14px;
+  color: $color-slate;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 20px;
+  margin: 0 0 4px;
+  color: $color-ink;
+}
+
+.company {
+  font-size: 15px;
+  color: $color-bronze;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $color-ink-muted;
+  margin: 0;
+  max-width: 600px;
+}
+
+.highlights {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $color-ink-muted;
+  max-width: 640px;
+
+  li + li {
+    margin-top: 4px;
+  }
+}
+
+.tags {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-slate;
+  background: $color-surface;
+  border: 1px solid $color-card-border;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
